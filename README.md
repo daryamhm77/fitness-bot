@@ -1,98 +1,168 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🏋️ Fitness Bot
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A Telegram bot built with NestJS that helps users discover and learn about various exercises. The bot provides detailed information about exercises, including target muscles, equipment needed, difficulty levels, and step-by-step instructions.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## ✨ Features
 
-## Description
+- 🔍 **Exercise Search**: Search for exercises by name with intelligent filtering
+- 🎯 **Target Muscle Browser**: Browse exercises by target muscle groups
+- 📋 **Multiple Results**: When multiple exercises match your search, choose from an inline keyboard
+- 📝 **Detailed Information**: Get comprehensive details including:
+  - Target muscle groups
+  - Body part worked
+  - Required equipment
+  - Difficulty level
+  - Secondary muscles engaged
+  - Step-by-step instructions
+- ⌨️ **User-Friendly Interface**: Reply keyboard for easy navigation
+- 🌐 **Persian Language Support**: Full support for Persian/Farsi language
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 Getting Started
 
-## Project setup
+### Prerequisites
 
+- Node.js (v14 or higher)
+- npm or yarn
+- A Telegram Bot Token (from [@BotFather](https://t.me/botfather))
+- RapidAPI Key for ExerciseDB API
+
+### Installation
+
+1. Clone the repository:
 ```bash
-$ npm install
+git clone <repository-url>
+cd fitness-bot
 ```
 
-## Compile and run the project
-
+2. Install dependencies:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+3. Create a `.env` file in the root directory:
+```env
+BOT_TOKEN=your_telegram_bot_token
+RAPID_API_KEY=your_rapidapi_key
+PORT=3000
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+4. Start the application:
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Development mode
+npm run start:dev
+
+# Production mode
+npm run start:prod
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🎮 Bot Commands
 
-## Resources
+- `/start` - Start the bot and display the main keyboard
+- `/exercise [name]` - Search for exercises by name
+- `/help` - Display help information
 
-Check out a few resources that may come in handy when working with NestJS:
+## 🎯 Main Features
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 1. Exercise Search
+Users can search for exercises in two ways:
+- Using the command: `/exercise push up`
+- Simply typing the exercise name: `push up`
 
-## Support
+If multiple exercises match the search, the bot displays them as clickable buttons.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 2. Target Muscle Browser
+Click the "🎯 عضلات هدف" (Target Muscles) button to:
+1. View all available muscle groups
+2. Select a muscle group
+3. Browse exercises targeting that muscle
+4. View detailed information about any exercise
 
-## Stay in touch
+### 3. Keyboard Navigation
+The bot provides an easy-to-use keyboard with options:
+- 🏋️ Search Exercise
+- 🎯 Target Muscles
+- ❓ Help
+- 🚪 Exit
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🏗️ Project Structure
 
-## License
+```
+src/
+├── bot/
+│   ├── bot.module.ts       # Bot module configuration
+│   ├── bot.service.ts      # Telegram bot initialization
+│   └── bot.update.ts       # Bot command handlers
+├── exercise/
+│   ├── exercise.module.ts  # Exercise module
+│   ├── exercise.service.ts # Exercise business logic
+│   └── exercise.client.ts  # ExerciseDB API client
+├── target/
+│   ├── target.module.ts    # Target muscle module
+│   ├── target.service.ts   # Target muscle business logic
+│   └── target.client.ts    # Target muscle API client
+└── app.module.ts           # Main application module
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 🔧 Technologies Used
+
+- **NestJS** - Progressive Node.js framework
+- **Telegraf** - Modern Telegram Bot API framework
+- **Axios** - HTTP client for API requests
+- **TypeScript** - Type-safe JavaScript
+- **ExerciseDB API** - Exercise database via RapidAPI
+
+## 📡 API Integration
+
+This bot uses the [ExerciseDB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) from RapidAPI, which provides:
+- 1300+ exercises with detailed information
+- Target muscle filtering
+- Exercise search by name
+- Comprehensive exercise data
+
+## 🛠️ Development
+
+### Running in Development Mode
+```bash
+npm run start:dev
+```
+
+### Building for Production
+```bash
+npm run build
+npm run start:prod
+```
+
+### Running Tests
+```bash
+# Unit tests
+npm run test
+
+# E2E tests
+npm run test:e2e
+
+# Test coverage
+npm run test:cov
+```
+
+## 📝 Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `BOT_TOKEN` | Telegram Bot Token from BotFather | Yes |
+| `RAPID_API_KEY` | RapidAPI key for ExerciseDB | Yes |
+| `PORT` | Application port (default: 3000) | No |
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+
+## 🙏 Acknowledgments
+
+- [NestJS](https://nestjs.com/) - The framework used
+- [Telegraf](https://telegraf.js.org/) - Telegram Bot framework
+- [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) - Exercise database API
+
+## 📞 Support
+
+For support, questions, or feedback, please open an issue in the repository.
